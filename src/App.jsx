@@ -1,23 +1,25 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
-//import songFile from ""; 
-const audio = new Audio("/song.mp3");
-
 
 function App() {
   const [stage, setStage] = useState("intro"); // intro / sorry / yes / final / end
   const [showHeart, setShowHeart] = useState(false);
-  const audioRef = useRef(new Audio(songFile));
+  const audioRef = useRef(new Audio("/song.mp3")); // <-- correct way
   const [songPlaying, setSongPlaying] = useState(false);
 
   // Play song once first click and repeat after ending
   useEffect(() => {
     const audio = audioRef.current;
-    const handleEnded = () => audio.play();
+
+    const handleEnded = () => audio.play(); // loop after ending
+
     if (songPlaying) {
-      audio.play();
+      audio.play().catch(() => {
+        console.log("Autoplay might be blocked. Try clicking first!");
+      });
       audio.addEventListener("ended", handleEnded);
     }
+
     return () => audio.removeEventListener("ended", handleEnded);
   }, [songPlaying]);
 
