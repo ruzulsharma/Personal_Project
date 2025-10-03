@@ -1,0 +1,140 @@
+/* Container */
+.container {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Card Style for first page */
+.card {
+  background: #ffffffdd;
+  padding: 5vw;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+  max-width: 90vw;
+  text-align: center;
+}
+
+/* Titles */
+.title {
+  font-size: 6vw;
+  color: #ff4d6d;
+  text-shadow: 2px 2px 6px #fff;
+  animation: bounce 1s infinite alternate;
+  margin-bottom: 2vh;
+}
+
+/* Messages */
+.message,
+.message-yes {
+  font-size: 4vw;
+  margin: 2vh 0;
+  color: #333;
+  max-width: 90vw;
+}
+
+/* Buttons */
+.buttons {
+  margin: 2vh 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.button {
+  font-size: 4vw;
+  padding: 1vh 3vw;
+  margin: 1vw;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+.button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.3);
+}
+.yes { background: #4ade80; color: white; }
+.no { background: #f87171; color: white; }
+.final { background: #60a5fa; color: white; }
+
+/* Sorry Page */
+.sorry-page {
+  font-size: 4vw;
+  color: #ff4d6d;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 5vw;
+  animation: shake 0.5s infinite;
+}
+
+/* Bouncing Heart */
+.bouncing-heart {
+  font-size: 10vw;
+  animation: bounce 1s infinite alternate;
+  cursor: pointer;
+  margin-top: 2vh;
+}
+
+/* Yes Page Stickers */
+.stickers {
+  display: flex;
+  justify-content: center;
+  margin: 2vh 0;
+  flex-wrap: wrap;
+}
+.stickers span {
+  font-size: 6vw;
+  margin: 0.5vw;
+  animation: float 2s ease-in-out infinite alternate;
+}
+
+/* End Page Stickers */
+.end-page .stickers span {
+  font-size: 8vw;
+  margin: 1vw;
+  animation: float 1.5s ease-in-out infinite alternate-reverse;
+}
+
+/* Footer */
+.footer {
+  position: absolute;
+  bottom: 2vh;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* Animations */
+@keyframes bounce {
+  from { transform: translateY(0); }
+  to { transform: translateY(-20px); }
+}
+@keyframes shake {
+  0% { transform: translate(1px, 1px); }
+  25% { transform: translate(-1px, -2px); }
+  50% { transform: translate(2px, 1px); }
+  75% { transform: translate(-2px, 2px); }
+  100% { transform: translate(1px, -1px); }
+}
+@keyframes float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-15px); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .title { font-size: 8vw; }
+  .message, .message-yes { font-size: 5vw; }
+  .button { font-size: 5vw; padding: 1vh 4vw; }
+  .bouncing-heart { font-size: 15vw; }
+  .stickers span { font-size: 10vw; }
+}
